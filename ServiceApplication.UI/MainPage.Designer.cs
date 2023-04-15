@@ -45,8 +45,8 @@
             // 
             // pnlChildForms
             // 
-            this.pnlChildForms.Location = new System.Drawing.Point(221, 73);
-            this.pnlChildForms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlChildForms.Location = new System.Drawing.Point(166, 59);
+            this.pnlChildForms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlChildForms.Name = "pnlChildForms";
             this.pnlChildForms.Size = new System.Drawing.Size(892, 612);
             this.pnlChildForms.TabIndex = 5;
