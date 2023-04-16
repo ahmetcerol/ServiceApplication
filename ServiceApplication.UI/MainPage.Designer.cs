@@ -45,8 +45,8 @@
             // 
             // pnlChildForms
             // 
-            this.pnlChildForms.Location = new System.Drawing.Point(166, 59);
-            this.pnlChildForms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlChildForms.Location = new System.Drawing.Point(221, 62);
+            this.pnlChildForms.Margin = new System.Windows.Forms.Padding(2);
             this.pnlChildForms.Name = "pnlChildForms";
             this.pnlChildForms.Size = new System.Drawing.Size(892, 612);
             this.pnlChildForms.TabIndex = 5;
@@ -58,7 +58,7 @@
             this.pnlMainPageMenu.Controls.Add(this.pnlMainPageLogo);
             this.pnlMainPageMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMainPageMenu.Location = new System.Drawing.Point(0, 0);
-            this.pnlMainPageMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMainPageMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMainPageMenu.Name = "pnlMainPageMenu";
             this.pnlMainPageMenu.Size = new System.Drawing.Size(215, 686);
             this.pnlMainPageMenu.TabIndex = 6;
@@ -73,7 +73,7 @@
             this.btnService.Image = ((System.Drawing.Image)(resources.GetObject("btnService.Image")));
             this.btnService.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnService.Location = new System.Drawing.Point(0, 123);
-            this.btnService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnService.Margin = new System.Windows.Forms.Padding(4);
             this.btnService.Name = "btnService";
             this.btnService.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnService.Size = new System.Drawing.Size(215, 57);
@@ -81,13 +81,14 @@
             this.btnService.Text = "Create Service";
             this.btnService.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnService.UseVisualStyleBackColor = true;
+            this.btnService.Click += new System.EventHandler(this.btnService_Click);
             // 
             // pnlMainPageLogo
             // 
             this.pnlMainPageLogo.Controls.Add(this.pbxLogo);
             this.pnlMainPageLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMainPageLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlMainPageLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMainPageLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMainPageLogo.Name = "pnlMainPageLogo";
             this.pnlMainPageLogo.Size = new System.Drawing.Size(215, 123);
             this.pnlMainPageLogo.TabIndex = 0;
@@ -97,7 +98,7 @@
             this.pbxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbxLogo.Image")));
             this.pbxLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbxLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbxLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pbxLogo.Name = "pbxLogo";
             this.pbxLogo.Size = new System.Drawing.Size(215, 123);
             this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -112,7 +113,7 @@
             this.btnBackMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackMain.Image = ((System.Drawing.Image)(resources.GetObject("btnBackMain.Image")));
             this.btnBackMain.Location = new System.Drawing.Point(223, 14);
-            this.btnBackMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBackMain.Margin = new System.Windows.Forms.Padding(4);
             this.btnBackMain.Name = "btnBackMain";
             this.btnBackMain.Size = new System.Drawing.Size(47, 42);
             this.btnBackMain.TabIndex = 7;
@@ -128,7 +129,7 @@
             this.btnMinimize.FlatAppearance.BorderSize = 0;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Location = new System.Drawing.Point(1029, 14);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(17, 25);
             this.btnMinimize.TabIndex = 10;
@@ -144,7 +145,7 @@
             this.btnMaximize.FlatAppearance.BorderSize = 0;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaximize.Location = new System.Drawing.Point(1053, 14);
-            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMaximize.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(17, 25);
             this.btnMaximize.TabIndex = 9;
@@ -160,7 +161,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Location = new System.Drawing.Point(1079, 14);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(17, 25);
             this.btnClose.TabIndex = 8;
@@ -174,16 +175,17 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1115, 686);
             this.Controls.Add(this.btnMinimize);
+            this.Controls.Add(this.pnlChildForms);
             this.Controls.Add(this.btnMaximize);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnBackMain);
             this.Controls.Add(this.pnlMainPageMenu);
-            this.Controls.Add(this.pnlChildForms);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Service Application";
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.pnlMainPageMenu.ResumeLayout(false);
             this.pnlMainPageLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();

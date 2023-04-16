@@ -43,7 +43,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblInformation = new System.Windows.Forms.Label();
             this.lblEnterDateTime = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpActualStartDate = new System.Windows.Forms.DateTimePicker();
+            this.lblActualStartDate = new System.Windows.Forms.Label();
+            this.btnChargeCalculation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxReservation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +59,7 @@
             this.btnCreate.ForeColor = System.Drawing.Color.White;
             this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(715, 536);
+            this.btnCreate.Location = new System.Drawing.Point(732, 542);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(147, 42);
@@ -65,11 +68,12 @@
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // tbxPhoneNumber
             // 
             this.tbxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(421, 325);
+            this.tbxPhoneNumber.Location = new System.Drawing.Point(447, 283);
             this.tbxPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPhoneNumber.Name = "tbxPhoneNumber";
             this.tbxPhoneNumber.Size = new System.Drawing.Size(200, 24);
@@ -79,7 +83,7 @@
             // 
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(184, 331);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(174, 288);
             this.lblPhoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(128, 24);
@@ -100,7 +104,7 @@
             // tbxPersonalIdentificationNo
             // 
             this.tbxPersonalIdentificationNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxPersonalIdentificationNo.Location = new System.Drawing.Point(421, 296);
+            this.tbxPersonalIdentificationNo.Location = new System.Drawing.Point(447, 254);
             this.tbxPersonalIdentificationNo.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPersonalIdentificationNo.Name = "tbxPersonalIdentificationNo";
             this.tbxPersonalIdentificationNo.Size = new System.Drawing.Size(200, 24);
@@ -109,7 +113,7 @@
             // tbxEmail
             // 
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxEmail.Location = new System.Drawing.Point(421, 258);
+            this.tbxEmail.Location = new System.Drawing.Point(447, 216);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(200, 24);
@@ -119,7 +123,7 @@
             // 
             this.lblDetailOfProperty.AutoSize = true;
             this.lblDetailOfProperty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblDetailOfProperty.Location = new System.Drawing.Point(184, 299);
+            this.lblDetailOfProperty.Location = new System.Drawing.Point(174, 256);
             this.lblDetailOfProperty.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailOfProperty.Name = "lblDetailOfProperty";
             this.lblDetailOfProperty.Size = new System.Drawing.Size(189, 24);
@@ -130,7 +134,7 @@
             // 
             this.lblCustomerAddress.AutoSize = true;
             this.lblCustomerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCustomerAddress.Location = new System.Drawing.Point(184, 264);
+            this.lblCustomerAddress.Location = new System.Drawing.Point(174, 221);
             this.lblCustomerAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCustomerAddress.Name = "lblCustomerAddress";
             this.lblCustomerAddress.Size = new System.Drawing.Size(188, 24);
@@ -140,7 +144,7 @@
             // tbxSurname
             // 
             this.tbxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxSurname.Location = new System.Drawing.Point(421, 223);
+            this.tbxSurname.Location = new System.Drawing.Point(447, 181);
             this.tbxSurname.Margin = new System.Windows.Forms.Padding(4);
             this.tbxSurname.Name = "tbxSurname";
             this.tbxSurname.Size = new System.Drawing.Size(200, 24);
@@ -150,7 +154,7 @@
             // 
             this.lblSurname.AutoSize = true;
             this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSurname.Location = new System.Drawing.Point(184, 226);
+            this.lblSurname.Location = new System.Drawing.Point(174, 183);
             this.lblSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(195, 24);
@@ -161,7 +165,7 @@
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxName.Location = new System.Drawing.Point(421, 195);
+            this.tbxName.Location = new System.Drawing.Point(447, 153);
             this.tbxName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(200, 24);
@@ -171,7 +175,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblName.Location = new System.Drawing.Point(184, 196);
+            this.lblName.Location = new System.Drawing.Point(174, 153);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
             this.lblName.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -183,7 +187,7 @@
             // 
             this.lblInformation.AutoSize = true;
             this.lblInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblInformation.Location = new System.Drawing.Point(79, 129);
+            this.lblInformation.Location = new System.Drawing.Point(69, 86);
             this.lblInformation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInformation.Name = "lblInformation";
             this.lblInformation.Size = new System.Drawing.Size(171, 24);
@@ -194,19 +198,57 @@
             // 
             this.lblEnterDateTime.AutoSize = true;
             this.lblEnterDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblEnterDateTime.Location = new System.Drawing.Point(184, 380);
+            this.lblEnterDateTime.Location = new System.Drawing.Point(174, 337);
             this.lblEnterDateTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnterDateTime.Name = "lblEnterDateTime";
             this.lblEnterDateTime.Size = new System.Drawing.Size(204, 24);
             this.lblEnterDateTime.TabIndex = 65;
             this.lblEnterDateTime.Text = "Start Date of Service:";
             // 
-            // dateTimePicker1
+            // dtpStartDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(421, 378);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 66;
+            this.dtpStartDate.Location = new System.Drawing.Point(447, 336);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpStartDate.TabIndex = 66;
+            // 
+            // dtpActualStartDate
+            // 
+            this.dtpActualStartDate.Location = new System.Drawing.Point(447, 374);
+            this.dtpActualStartDate.Name = "dtpActualStartDate";
+            this.dtpActualStartDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpActualStartDate.TabIndex = 68;
+            // 
+            // lblActualStartDate
+            // 
+            this.lblActualStartDate.AutoSize = true;
+            this.lblActualStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblActualStartDate.Location = new System.Drawing.Point(174, 371);
+            this.lblActualStartDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActualStartDate.Name = "lblActualStartDate";
+            this.lblActualStartDate.Size = new System.Drawing.Size(268, 24);
+            this.lblActualStartDate.TabIndex = 67;
+            this.lblActualStartDate.Text = "Actual Start Date of Service:";
+            // 
+            // btnChargeCalculation
+            // 
+            this.btnChargeCalculation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(59)))), ((int)(((byte)(56)))));
+            this.btnChargeCalculation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnChargeCalculation.FlatAppearance.BorderSize = 0;
+            this.btnChargeCalculation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChargeCalculation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnChargeCalculation.ForeColor = System.Drawing.Color.White;
+            this.btnChargeCalculation.Image = ((System.Drawing.Image)(resources.GetObject("btnChargeCalculation.Image")));
+            this.btnChargeCalculation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChargeCalculation.Location = new System.Drawing.Point(563, 542);
+            this.btnChargeCalculation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChargeCalculation.Name = "btnChargeCalculation";
+            this.btnChargeCalculation.Size = new System.Drawing.Size(147, 42);
+            this.btnChargeCalculation.TabIndex = 69;
+            this.btnChargeCalculation.Text = "   Charge";
+            this.btnChargeCalculation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChargeCalculation.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnChargeCalculation.UseVisualStyleBackColor = false;
             // 
             // ServiceInformationPage
             // 
@@ -214,7 +256,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(892, 612);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btnChargeCalculation);
+            this.Controls.Add(this.dtpActualStartDate);
+            this.Controls.Add(this.lblActualStartDate);
+            this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.lblEnterDateTime);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.tbxPhoneNumber);
@@ -254,6 +299,9 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label lblEnterDateTime;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DateTimePicker dtpActualStartDate;
+        private System.Windows.Forms.Label lblActualStartDate;
+        private System.Windows.Forms.Button btnChargeCalculation;
     }
 }
