@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceInformationPage));
             this.btnCreate = new System.Windows.Forms.Button();
-            this.tbxPhoneNumber = new System.Windows.Forms.TextBox();
+            this.tbxPriceDay = new System.Windows.Forms.TextBox();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.pbxReservation = new System.Windows.Forms.PictureBox();
-            this.tbxPersonalIdentificationNo = new System.Windows.Forms.TextBox();
-            this.tbxEmail = new System.Windows.Forms.TextBox();
+            this.tbxProperty = new System.Windows.Forms.TextBox();
+            this.tbxAddress = new System.Windows.Forms.TextBox();
             this.lblDetailOfProperty = new System.Windows.Forms.Label();
             this.lblCustomerAddress = new System.Windows.Forms.Label();
             this.tbxSurname = new System.Windows.Forms.TextBox();
@@ -70,14 +70,14 @@
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // tbxPhoneNumber
+            // tbxPriceDay
             // 
-            this.tbxPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxPhoneNumber.Location = new System.Drawing.Point(447, 283);
-            this.tbxPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxPhoneNumber.Name = "tbxPhoneNumber";
-            this.tbxPhoneNumber.Size = new System.Drawing.Size(200, 24);
-            this.tbxPhoneNumber.TabIndex = 63;
+            this.tbxPriceDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxPriceDay.Location = new System.Drawing.Point(447, 283);
+            this.tbxPriceDay.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxPriceDay.Name = "tbxPriceDay";
+            this.tbxPriceDay.Size = new System.Drawing.Size(200, 24);
+            this.tbxPriceDay.TabIndex = 63;
             // 
             // lblPhoneNumber
             // 
@@ -101,23 +101,23 @@
             this.pbxReservation.TabIndex = 61;
             this.pbxReservation.TabStop = false;
             // 
-            // tbxPersonalIdentificationNo
+            // tbxProperty
             // 
-            this.tbxPersonalIdentificationNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxPersonalIdentificationNo.Location = new System.Drawing.Point(447, 254);
-            this.tbxPersonalIdentificationNo.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxPersonalIdentificationNo.Name = "tbxPersonalIdentificationNo";
-            this.tbxPersonalIdentificationNo.Size = new System.Drawing.Size(200, 24);
-            this.tbxPersonalIdentificationNo.TabIndex = 60;
+            this.tbxProperty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxProperty.Location = new System.Drawing.Point(447, 254);
+            this.tbxProperty.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxProperty.Name = "tbxProperty";
+            this.tbxProperty.Size = new System.Drawing.Size(200, 24);
+            this.tbxProperty.TabIndex = 60;
             // 
-            // tbxEmail
+            // tbxAddress
             // 
-            this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxEmail.Location = new System.Drawing.Point(447, 216);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(200, 24);
-            this.tbxEmail.TabIndex = 59;
+            this.tbxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxAddress.Location = new System.Drawing.Point(447, 216);
+            this.tbxAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxAddress.Name = "tbxAddress";
+            this.tbxAddress.Size = new System.Drawing.Size(200, 24);
+            this.tbxAddress.TabIndex = 59;
             // 
             // lblDetailOfProperty
             // 
@@ -262,11 +262,11 @@
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.lblEnterDateTime);
             this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.tbxPhoneNumber);
+            this.Controls.Add(this.tbxPriceDay);
             this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.pbxReservation);
-            this.Controls.Add(this.tbxPersonalIdentificationNo);
-            this.Controls.Add(this.tbxEmail);
+            this.Controls.Add(this.tbxProperty);
+            this.Controls.Add(this.tbxAddress);
             this.Controls.Add(this.lblDetailOfProperty);
             this.Controls.Add(this.lblCustomerAddress);
             this.Controls.Add(this.tbxSurname);
@@ -286,11 +286,11 @@
         #endregion
 
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.TextBox tbxPhoneNumber;
+        private System.Windows.Forms.TextBox tbxPriceDay;
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.PictureBox pbxReservation;
-        private System.Windows.Forms.TextBox tbxPersonalIdentificationNo;
-        private System.Windows.Forms.TextBox tbxEmail;
+        private System.Windows.Forms.TextBox tbxProperty;
+        private System.Windows.Forms.TextBox tbxAddress;
         private System.Windows.Forms.Label lblDetailOfProperty;
         private System.Windows.Forms.Label lblCustomerAddress;
         private System.Windows.Forms.TextBox tbxSurname;
