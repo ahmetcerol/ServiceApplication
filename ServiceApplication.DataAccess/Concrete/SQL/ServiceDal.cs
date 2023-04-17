@@ -97,7 +97,11 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             {
                 Service service = new Service()
                 {
-
+                    SERVICE_ID= Convert.ToInt32(reader["SERVICE_ID"]),
+                    CUSTOMER_NAME = reader["CUSTOMER_NAME"].ToString(),
+                    CUSTOMER_ADDRESS = reader["CUSTOMER_ADDRESS"].ToString(),
+                    DESC_PROPERTY = reader["DESC_PROPERTY"].ToString(),
+                    BALANCE = Convert.ToInt32(reader["BALANCE"]),
                 };
                 serviceInfo.Add(service);
 
@@ -111,8 +115,18 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
         {
             concontrol();
             SqlCommand command = new SqlCommand(
-                "Insert into Bilgiler Values(@...)", aconnection);
-            //command.Parameters.AddWithValue("@....");
+                "Insert into Bilgiler Values(@CUSTOMER_NAME,@CUSTOMER_ADRESS, @DESC_PROPERTY, @DATE_SERTAKEPLACE, " +
+                "@DATE_SERTOOKPLACE, @DATE_TWOWEEKS, @CHARGE_BEING, @CHARGE_DONE, @PAID_ALONG, @BALANCE)", aconnection);
+            command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
+            command.Parameters.AddWithValue("CUSTOMER_ADRESS", service.CUSTOMER_ADDRESS);
+            command.Parameters.AddWithValue("DESC_PROPERTY", service.DESC_PROPERTY);
+            command.Parameters.AddWithValue("DATE_SERTAKEPLACE", service.DATE_SERTAKEPLACE);
+            command.Parameters.AddWithValue("DATE_SERTOOKPLACE", service.DATE_SERTOOKPLACE);
+            command.Parameters.AddWithValue("DATE_TWOWEEKS", service.DATE_TWOWEEKS);
+            command.Parameters.AddWithValue("CHARGE_BEING", service.CHARGE_BEING);
+            command.Parameters.AddWithValue("CHARGE_DONE", service.CHARGE_DONE);
+            command.Parameters.AddWithValue("PAID_ALONG", service.PAID_ALONG);
+            command.Parameters.AddWithValue("BALANCE", service.BALANCE);
             command.ExecuteNonQuery();
             aconnection.Close();
         }
