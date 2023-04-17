@@ -41,11 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IServiceDal.cs" />
+    <Compile Include="Abstract\ISqlRepository.cs" />
+    <Compile Include="Concrete\SQL\ServiceDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\ServiceApplication.Entities\ServiceApplication.Entities.csproj">
+      <Project>{9a0d34ff-bb59-4715-8c45-a4448fe7d924}</Project>
+      <Name>ServiceApplication.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceApplication.UI\ServiceApplication.UI.csproj">
+      <Project>{4a62e142-8969-4488-a1ea-d542f6844f40}</Project>
+      <Name>ServiceApplication.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

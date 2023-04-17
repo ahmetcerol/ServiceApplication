@@ -59,7 +59,7 @@
             this.btnCreate.ForeColor = System.Drawing.Color.White;
             this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(732, 542);
+            this.btnCreate.Location = new System.Drawing.Point(732, 517);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(147, 42);
@@ -240,7 +240,7 @@
             this.btnChargeCalculation.ForeColor = System.Drawing.Color.White;
             this.btnChargeCalculation.Image = ((System.Drawing.Image)(resources.GetObject("btnChargeCalculation.Image")));
             this.btnChargeCalculation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChargeCalculation.Location = new System.Drawing.Point(563, 542);
+            this.btnChargeCalculation.Location = new System.Drawing.Point(562, 517);
             this.btnChargeCalculation.Margin = new System.Windows.Forms.Padding(4);
             this.btnChargeCalculation.Name = "btnChargeCalculation";
             this.btnChargeCalculation.Size = new System.Drawing.Size(147, 42);

@@ -41,11 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IServiceService.cs" />
+    <Compile Include="Concrete\ServiceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\ServiceApplication.DataAccess\ServiceApplication.DataAccess.csproj">
+      <Project>{b78984e9-1a1e-4999-a556-d2268252486f}</Project>
+      <Name>ServiceApplication.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceApplication.Entities\ServiceApplication.Entities.csproj">
+      <Project>{9a0d34ff-bb59-4715-8c45-a4448fe7d924}</Project>
+      <Name>ServiceApplication.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
