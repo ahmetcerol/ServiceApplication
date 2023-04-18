@@ -73,5 +73,10 @@ namespace ServiceApplication.UI
         {
             OpenChildForm(new Forms.ServiceInformationPage(), sender);
         }
+
+        private void btnGetAllServices_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.AllServicesMadePage(), sender);
+        }
     }
 }

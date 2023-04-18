@@ -38,6 +38,7 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnGetAllServices = new System.Windows.Forms.Button();
             this.pnlMainPageMenu.SuspendLayout();
             this.pnlMainPageLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -54,6 +55,7 @@
             // pnlMainPageMenu
             // 
             this.pnlMainPageMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMainPageMenu.Controls.Add(this.btnGetAllServices);
             this.pnlMainPageMenu.Controls.Add(this.btnService);
             this.pnlMainPageMenu.Controls.Add(this.pnlMainPageLogo);
             this.pnlMainPageMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -168,6 +170,26 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnGetAllServices
+            // 
+            this.btnGetAllServices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGetAllServices.FlatAppearance.BorderSize = 0;
+            this.btnGetAllServices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetAllServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGetAllServices.ForeColor = System.Drawing.Color.White;
+            this.btnGetAllServices.Image = ((System.Drawing.Image)(resources.GetObject("btnGetAllServices.Image")));
+            this.btnGetAllServices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetAllServices.Location = new System.Drawing.Point(0, 180);
+            this.btnGetAllServices.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGetAllServices.Name = "btnGetAllServices";
+            this.btnGetAllServices.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnGetAllServices.Size = new System.Drawing.Size(215, 57);
+            this.btnGetAllServices.TabIndex = 2;
+            this.btnGetAllServices.Text = "Get All Services ";
+            this.btnGetAllServices.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGetAllServices.UseVisualStyleBackColor = true;
+            this.btnGetAllServices.Click += new System.EventHandler(this.btnGetAllServices_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,6 +226,7 @@
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Button btnMaximize;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnGetAllServices;
     }
 }
 

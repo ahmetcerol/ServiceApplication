@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AllServicesMadePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AllServicesMadePage.Designer.cs">
+      <DependentUpon>AllServicesMadePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ServiceInformationPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AllServicesMadePage.resx">
+      <DependentUpon>AllServicesMadePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ServiceInformationPage.resx">
       <DependentUpon>ServiceInformationPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +101,7 @@
     <Content Include="Images\exit.png" />
     <Content Include="Images\maximize.png" />
     <Content Include="Images\minimize.png" />
+    <Content Include="Images\refresh.png" />
     <Content Include="Images\Service App.png" />
     <Content Include="Images\serviceApplicationLogo.png" />
   </ItemGroup>
