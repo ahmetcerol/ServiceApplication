@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllServicesMadePage));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgwAll = new System.Windows.Forms.DataGridView();
             this.btnRefreshData = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwAll)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgwAll
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(867, 535);
-            this.dataGridView1.TabIndex = 0;
+            this.dgwAll.BackgroundColor = System.Drawing.Color.White;
+            this.dgwAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwAll.GridColor = System.Drawing.Color.Black;
+            this.dgwAll.Location = new System.Drawing.Point(13, 13);
+            this.dgwAll.Name = "dgwAll";
+            this.dgwAll.RowHeadersWidth = 51;
+            this.dgwAll.RowTemplate.Height = 24;
+            this.dgwAll.Size = new System.Drawing.Size(867, 535);
+            this.dgwAll.TabIndex = 0;
             // 
             // btnRefreshData
             // 
@@ -64,6 +64,7 @@
             this.btnRefreshData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRefreshData.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRefreshData.UseVisualStyleBackColor = false;
+            this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
             // 
             // AllServicesMadePage
             // 
@@ -72,18 +73,19 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(892, 612);
             this.Controls.Add(this.btnRefreshData);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgwAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AllServicesMadePage";
             this.Text = "AllServicesMadePage";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.AllServicesMadePage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwAll)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgwAll;
         private System.Windows.Forms.Button btnRefreshData;
     }
 }

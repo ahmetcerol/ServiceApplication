@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.pnlChildForms = new System.Windows.Forms.Panel();
             this.pnlMainPageMenu = new System.Windows.Forms.Panel();
+            this.btnGetAllServices = new System.Windows.Forms.Button();
             this.btnService = new System.Windows.Forms.Button();
             this.pnlMainPageLogo = new System.Windows.Forms.Panel();
             this.pbxLogo = new System.Windows.Forms.PictureBox();
@@ -38,7 +39,6 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnGetAllServices = new System.Windows.Forms.Button();
             this.pnlMainPageMenu.SuspendLayout();
             this.pnlMainPageLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
@@ -49,7 +49,7 @@
             this.pnlChildForms.Location = new System.Drawing.Point(221, 62);
             this.pnlChildForms.Margin = new System.Windows.Forms.Padding(2);
             this.pnlChildForms.Name = "pnlChildForms";
-            this.pnlChildForms.Size = new System.Drawing.Size(892, 612);
+            this.pnlChildForms.Size = new System.Drawing.Size(892, 732);
             this.pnlChildForms.TabIndex = 5;
             // 
             // pnlMainPageMenu
@@ -62,8 +62,28 @@
             this.pnlMainPageMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMainPageMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMainPageMenu.Name = "pnlMainPageMenu";
-            this.pnlMainPageMenu.Size = new System.Drawing.Size(215, 686);
+            this.pnlMainPageMenu.Size = new System.Drawing.Size(215, 807);
             this.pnlMainPageMenu.TabIndex = 6;
+            // 
+            // btnGetAllServices
+            // 
+            this.btnGetAllServices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGetAllServices.FlatAppearance.BorderSize = 0;
+            this.btnGetAllServices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetAllServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGetAllServices.ForeColor = System.Drawing.Color.White;
+            this.btnGetAllServices.Image = ((System.Drawing.Image)(resources.GetObject("btnGetAllServices.Image")));
+            this.btnGetAllServices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGetAllServices.Location = new System.Drawing.Point(0, 180);
+            this.btnGetAllServices.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGetAllServices.Name = "btnGetAllServices";
+            this.btnGetAllServices.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnGetAllServices.Size = new System.Drawing.Size(215, 57);
+            this.btnGetAllServices.TabIndex = 2;
+            this.btnGetAllServices.Text = "Get All Services ";
+            this.btnGetAllServices.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnGetAllServices.UseVisualStyleBackColor = true;
+            this.btnGetAllServices.Click += new System.EventHandler(this.btnGetAllServices_Click);
             // 
             // btnService
             // 
@@ -170,32 +190,12 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnGetAllServices
-            // 
-            this.btnGetAllServices.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGetAllServices.FlatAppearance.BorderSize = 0;
-            this.btnGetAllServices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGetAllServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGetAllServices.ForeColor = System.Drawing.Color.White;
-            this.btnGetAllServices.Image = ((System.Drawing.Image)(resources.GetObject("btnGetAllServices.Image")));
-            this.btnGetAllServices.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetAllServices.Location = new System.Drawing.Point(0, 180);
-            this.btnGetAllServices.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGetAllServices.Name = "btnGetAllServices";
-            this.btnGetAllServices.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnGetAllServices.Size = new System.Drawing.Size(215, 57);
-            this.btnGetAllServices.TabIndex = 2;
-            this.btnGetAllServices.Text = "Get All Services ";
-            this.btnGetAllServices.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnGetAllServices.UseVisualStyleBackColor = true;
-            this.btnGetAllServices.Click += new System.EventHandler(this.btnGetAllServices_Click);
-            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1115, 686);
+            this.ClientSize = new System.Drawing.Size(1115, 807);
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.pnlChildForms);
             this.Controls.Add(this.btnMaximize);
