@@ -63,6 +63,7 @@
             this.cbxJobs = new System.Windows.Forms.ComboBox();
             this.lblSpecialNote = new System.Windows.Forms.Label();
             this.rbxSpecialNote = new System.Windows.Forms.RichTextBox();
+            this.lblControlText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,12 +76,12 @@
             this.btnCreate.ForeColor = System.Drawing.Color.White;
             this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(732, 677);
+            this.btnCreate.Location = new System.Drawing.Point(748, 677);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(147, 42);
+            this.btnCreate.Size = new System.Drawing.Size(115, 42);
             this.btnCreate.TabIndex = 64;
-            this.btnCreate.Text = "     Create";
+            this.btnCreate.Text = "Create";
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCreate.UseVisualStyleBackColor = false;
@@ -88,6 +89,7 @@
             // 
             // tbxPriceDay
             // 
+            this.tbxPriceDay.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxPriceDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxPriceDay.Location = new System.Drawing.Point(395, 321);
             this.tbxPriceDay.Margin = new System.Windows.Forms.Padding(4);
@@ -108,6 +110,7 @@
             // 
             // tbxProperty
             // 
+            this.tbxProperty.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxProperty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxProperty.Location = new System.Drawing.Point(395, 292);
             this.tbxProperty.Margin = new System.Windows.Forms.Padding(4);
@@ -117,6 +120,7 @@
             // 
             // tbxAddress
             // 
+            this.tbxAddress.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxAddress.Location = new System.Drawing.Point(395, 222);
             this.tbxAddress.Margin = new System.Windows.Forms.Padding(4);
@@ -148,6 +152,7 @@
             // 
             // tbxSurname
             // 
+            this.tbxSurname.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxSurname.Location = new System.Drawing.Point(395, 117);
             this.tbxSurname.Margin = new System.Windows.Forms.Padding(4);
@@ -169,6 +174,7 @@
             // 
             // tbxName
             // 
+            this.tbxName.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxName.Location = new System.Drawing.Point(395, 89);
             this.tbxName.Margin = new System.Windows.Forms.Padding(4);
@@ -238,6 +244,7 @@
             // lblCustomerTelephoneNumber
             // 
             this.lblCustomerTelephoneNumber.AutoSize = true;
+            this.lblCustomerTelephoneNumber.BackColor = System.Drawing.Color.White;
             this.lblCustomerTelephoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblCustomerTelephoneNumber.Location = new System.Drawing.Point(96, 153);
             this.lblCustomerTelephoneNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -249,6 +256,7 @@
             // 
             // txTelephoneNumber
             // 
+            this.txTelephoneNumber.BackColor = System.Drawing.SystemColors.ControlDark;
             this.txTelephoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txTelephoneNumber.Location = new System.Drawing.Point(395, 154);
             this.txTelephoneNumber.Margin = new System.Windows.Forms.Padding(4);
@@ -270,6 +278,7 @@
             // 
             // tbxEmail
             // 
+            this.tbxEmail.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxEmail.Location = new System.Drawing.Point(395, 189);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
@@ -290,6 +299,7 @@
             // 
             // tbxPersonofContact
             // 
+            this.tbxPersonofContact.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxPersonofContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxPersonofContact.Location = new System.Drawing.Point(395, 260);
             this.tbxPersonofContact.Margin = new System.Windows.Forms.Padding(4);
@@ -310,7 +320,7 @@
             // 
             // tbxServiceCharge
             // 
-            this.tbxServiceCharge.BackColor = System.Drawing.Color.White;
+            this.tbxServiceCharge.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxServiceCharge.Enabled = false;
             this.tbxServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxServiceCharge.Location = new System.Drawing.Point(395, 569);
@@ -321,7 +331,7 @@
             // 
             // pbxPicture
             // 
-            this.pbxPicture.BackColor = System.Drawing.Color.LightGray;
+            this.pbxPicture.BackColor = System.Drawing.Color.DarkGray;
             this.pbxPicture.Location = new System.Drawing.Point(732, 14);
             this.pbxPicture.Name = "pbxPicture";
             this.pbxPicture.Size = new System.Drawing.Size(129, 118);
@@ -369,7 +379,7 @@
             // 
             // tbxActuallyPerformed
             // 
-            this.tbxActuallyPerformed.BackColor = System.Drawing.Color.White;
+            this.tbxActuallyPerformed.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tbxActuallyPerformed.Enabled = false;
             this.tbxActuallyPerformed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxActuallyPerformed.Location = new System.Drawing.Point(467, 521);
@@ -391,6 +401,7 @@
             // 
             // cbxJobs
             // 
+            this.cbxJobs.BackColor = System.Drawing.SystemColors.ControlDark;
             this.cbxJobs.FormattingEnabled = true;
             this.cbxJobs.Location = new System.Drawing.Point(395, 352);
             this.cbxJobs.Name = "cbxJobs";
@@ -410,11 +421,24 @@
             // 
             // rbxSpecialNote
             // 
+            this.rbxSpecialNote.BackColor = System.Drawing.SystemColors.ControlDark;
             this.rbxSpecialNote.Location = new System.Drawing.Point(264, 609);
             this.rbxSpecialNote.Name = "rbxSpecialNote";
             this.rbxSpecialNote.Size = new System.Drawing.Size(331, 96);
             this.rbxSpecialNote.TabIndex = 87;
             this.rbxSpecialNote.Text = "";
+            // 
+            // lblControlText
+            // 
+            this.lblControlText.AutoSize = true;
+            this.lblControlText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblControlText.ForeColor = System.Drawing.Color.Red;
+            this.lblControlText.Location = new System.Drawing.Point(615, 189);
+            this.lblControlText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblControlText.Name = "lblControlText";
+            this.lblControlText.Size = new System.Drawing.Size(0, 24);
+            this.lblControlText.TabIndex = 88;
+            this.lblControlText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ServiceInformationPage
             // 
@@ -422,6 +446,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(892, 732);
+            this.Controls.Add(this.lblControlText);
             this.Controls.Add(this.rbxSpecialNote);
             this.Controls.Add(this.lblSpecialNote);
             this.Controls.Add(this.cbxJobs);
@@ -502,5 +527,6 @@
         private System.Windows.Forms.ComboBox cbxJobs;
         private System.Windows.Forms.Label lblSpecialNote;
         private System.Windows.Forms.RichTextBox rbxSpecialNote;
+        private System.Windows.Forms.Label lblControlText;
     }
 }

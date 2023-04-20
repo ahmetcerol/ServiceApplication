@@ -8,6 +8,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +25,18 @@ namespace ServiceApplication.UI.Forms
             _serviceService = new ServiceManager(new ServiceDal());
             InitializeComponent();
         }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                MailAddress mailAddress = new MailAddress(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -30,14 +44,19 @@ namespace ServiceApplication.UI.Forms
                 tbxProperty.Text == String.Empty || tbxSurname.Text == String.Empty)
             {
                 MessageBox.Show("Please fill in all fields");}
-
+            else if (IsValidEmail(tbxEmail.Text))
+            {
+                lblControlText.Text = "E-mail is valid";
+            }
             else
             {
-                _serviceService.Add(new Service
+                lblControlText.Text = "E-mail is not valid";
+                DelayMethod();
+                /*_serviceService.Add(new Service
                 {
                     CUSTOMER_NAME = tbxName.Text,
                     CUSTOMER_ADDRESS = tbxAddress.Text,
-                    CUSTOMER_TELEPHONE = Convert.ToInt32(txTelephoneNumber),
+                    CUSTOMER_TELEPHONE = Convert.ToInt32(txTelephoneNumber.Text),
                     CUSTOMER_EMAİL = tbxEmail.Text,
                     PERSON_OF_CONTACT = tbxPersonofContact.Text,
                     DESC_PROPERTY = tbxProperty.Text,
@@ -47,17 +66,23 @@ namespace ServiceApplication.UI.Forms
                     DATE_SERTAKEPLACE = Convert.ToDateTime(dtpStartDate.Value),
                     DATE_SERTOOKPLACE = Convert.ToDateTime(dtpActualStartDate.Value),
                     DATE_TWOWEEKS = Convert.ToDateTime(dtpNextCutDate.Value),
-                   /*buraya fiyat charge falan gelmesi lazım fakat ben anlamadım o ksımını*/
+                   buraya fiyat charge falan gelmesi lazım fakat ben anlamadım o ksımını
 
-                }) ;
+                });*/
             }
         }
+        private async Task DelayMethod()
+        {
+            await Task.Delay(2000);
+            lblControlText.Text = "";
+        }
+
 
         private void btnSelectPicture_Click(object sender, EventArgs e)
         {
             OpenFileDialog file= new OpenFileDialog();
             file.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            file.Filter = "*.png || *.jpg";
+            file.Filter = "*.png | *.jpg";
             file.CheckFileExists = false;
             file.Title = "Select a Picture...";
             file.ShowDialog();
