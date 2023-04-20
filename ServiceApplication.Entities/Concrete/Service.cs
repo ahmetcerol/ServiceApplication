@@ -11,6 +11,7 @@ namespace ServiceApplication.Entities.Concrete
     {
         public int SERVICE_ID { get; set; }
         public string CUSTOMER_NAME { get; set;}
+        public string CUSTOMER_SURNAME { get; set; }
         public string CUSTOMER_ADDRESS { get; set; }
         public int CUSTOMER_TELEPHONE { get; set; } 
         public string CUSTOMER_EMAİL { get; set; }
@@ -26,6 +27,7 @@ namespace ServiceApplication.Entities.Concrete
         public int CHARGE_DONE { get; set; }
         public int PAID_ALONG { get; set; }
         public int BALANCE { get; set; }
+        public byte[] SELECTED_IMAGE_DATA { get; set; } 
 
     }
 }

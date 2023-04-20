@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AllServicesMadePage));
             this.dgwAll = new System.Windows.Forms.DataGridView();
             this.btnRefreshData = new System.Windows.Forms.Button();
+            this.pbxServicePhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAll)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxServicePhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwAll
@@ -43,8 +45,9 @@
             this.dgwAll.Name = "dgwAll";
             this.dgwAll.RowHeadersWidth = 51;
             this.dgwAll.RowTemplate.Height = 24;
-            this.dgwAll.Size = new System.Drawing.Size(867, 535);
+            this.dgwAll.Size = new System.Drawing.Size(649, 535);
             this.dgwAll.TabIndex = 0;
+            this.dgwAll.SelectionChanged += new System.EventHandler(this.dgwAll_SelectionChanged);
             // 
             // btnRefreshData
             // 
@@ -66,12 +69,22 @@
             this.btnRefreshData.UseVisualStyleBackColor = false;
             this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
             // 
+            // pbxServicePhoto
+            // 
+            this.pbxServicePhoto.BackColor = System.Drawing.Color.Silver;
+            this.pbxServicePhoto.Location = new System.Drawing.Point(668, 13);
+            this.pbxServicePhoto.Name = "pbxServicePhoto";
+            this.pbxServicePhoto.Size = new System.Drawing.Size(212, 170);
+            this.pbxServicePhoto.TabIndex = 46;
+            this.pbxServicePhoto.TabStop = false;
+            // 
             // AllServicesMadePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(892, 612);
+            this.Controls.Add(this.pbxServicePhoto);
             this.Controls.Add(this.btnRefreshData);
             this.Controls.Add(this.dgwAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -79,6 +92,7 @@
             this.Text = "AllServicesMadePage";
             this.Load += new System.EventHandler(this.AllServicesMadePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAll)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxServicePhoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,5 +101,6 @@
 
         private System.Windows.Forms.DataGridView dgwAll;
         private System.Windows.Forms.Button btnRefreshData;
+        private System.Windows.Forms.PictureBox pbxServicePhoto;
     }
 }

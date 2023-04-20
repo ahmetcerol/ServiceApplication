@@ -143,6 +143,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     // Tablo oluşturma komutunu hazırla
                     string createTableQuery = $"USE {databaseName}; CREATE TABLE {tableName} (SERVICE_ID INT PRIMARY KEY," +
                         $"CUSTOMER_NAME NVARCHAR(255)," +
+                        $"CUSTOMER_SURNAME NVARCHAR(255)," +
                         $"CUSTOMER_ADDRESS NVARCHAR(255), " +
                         $"CUSTOMER_TELEPHONE INT, " +
                         $"CUSTOMER_EMAİL NVARCHAR(255), " +
@@ -157,7 +158,8 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                         $"CHARGE_BEING INT," +
                         $"CHARGE_DONE INT, " +
                         $"PAID_ALONG INT, " +
-                        $"BALANCE INT)";
+                        $"BALANCE INT," +
+                        $"ResimData VARBINARY(MAX) NULL)";
 
                     // Komutu SQL Server'a gönder
                     using (SqlCommand command = new SqlCommand(createTableQuery, connection))
@@ -186,6 +188,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                 {
                     SERVICE_ID = Convert.ToInt32(reader["SERVICE_ID"]),
                     CUSTOMER_NAME = Convert.ToString(reader["CUSTOMER_NAME"]),
+                    CUSTOMER_SURNAME= Convert.ToString(reader["CUSTOMER_SURNAME"]),
                     CUSTOMER_ADDRESS = Convert.ToString(reader["CUSTOMER_ADDRESS"]),
                     CUSTOMER_TELEPHONE = Convert.ToInt32(reader["CUSTOMER_TELEPHONE"]),
                     CUSTOMER_EMAİL = Convert.ToString(reader["CUSTOMER_EMAİL"]),
@@ -200,9 +203,9 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     CHARGE_BEING = Convert.ToInt32(reader["CHARGE_BEING"]),
                     CHARGE_DONE = Convert.ToInt32(reader["CHARGE_DONE"]),
                     PAID_ALONG = Convert.ToInt32(reader["PAID_ALONG"]),
-                    BALANCE = Convert.ToInt32(reader["BALANCE"])
-
-                };
+                    BALANCE = Convert.ToInt32(reader["BALANCE"]),
+                    SELECTED_IMAGE_DATA= (byte[])reader["SELECTED_IMAGE_DATA"],
+            };
                 serviceInfo.Add(service);
 
             }
@@ -217,10 +220,11 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             CheckAndCreate();
             SqlConnection aconnection = new SqlConnection("...");
             SqlCommand command = new SqlCommand(
-                "INSERT INTO YourTableName VALUES (@SERVICE_ID, @CUSTOMER_NAME, @CUSTOMER_ADDRESS, @CUSTOMER_TELEPHONE, @CUSTOMER_EMAİL, @PERSON_OF_CONTACT, @DESC_PROPERTY, @SPECİAL_NOTE, " +
-                "@ACTUALLY_PERFORMED, @JOB_KİND, @DATE_SERTAKEPLACE, @DATE_SERTOOKPLACE, @DATE_TWOWEEKS, @CHARGE_BEING, @CHARGE_DONE, @PAID_ALONG, @BALANCE", aconnection);
-            command.Parameters.AddWithValue("@SERVICE_ID", service.SERVICE_ID);
+                "INSERT INTO YourTableName VALUES (@CUSTOMER_NAME,@CUSTOMER_SURNAME, @CUSTOMER_ADDRESS, @CUSTOMER_TELEPHONE, @CUSTOMER_EMAİL, @PERSON_OF_CONTACT, @DESC_PROPERTY, @SPECİAL_NOTE, " +
+                "@ACTUALLY_PERFORMED, @JOB_KİND, @DATE_SERTAKEPLACE, @DATE_SERTOOKPLACE, @DATE_TWOWEEKS, @CHARGE_BEING, @CHARGE_DONE, @PAID_ALONG, @BALANCE,@SELECTED_IMAGE_DATA", aconnection);
+
             command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
+            command.Parameters.AddWithValue("@CUSTOMER_SURNAME", service.CUSTOMER_SURNAME);
             command.Parameters.AddWithValue("@CUSTOMER_ADDRESS", service.CUSTOMER_ADDRESS);
             command.Parameters.AddWithValue("@CUSTOMER_TELEPHONE", service.CUSTOMER_TELEPHONE);
             command.Parameters.AddWithValue("@CUSTOMER_EMAİL", service.CUSTOMER_EMAİL);
@@ -236,6 +240,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             command.Parameters.AddWithValue("@CHARGE_DONE", service.CHARGE_DONE);
             command.Parameters.AddWithValue("@PAID_ALONG", service.PAID_ALONG);
             command.Parameters.AddWithValue("@BALANCE", service.BALANCE);
+            command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA);
             command.ExecuteNonQuery();
             aconnection.Close();
         }

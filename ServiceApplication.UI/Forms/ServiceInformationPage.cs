@@ -37,7 +37,11 @@ namespace ServiceApplication.UI.Forms
                 return false;
             }
         }
-
+        private async Task DelayMethod()
+        {
+            await Task.Delay(2000);
+            lblControlText.Text = "";
+        }
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (tbxAddress.Text == String.Empty || tbxName.Text == String.Empty || tbxPriceDay.Text == String.Empty || 
@@ -65,24 +69,17 @@ namespace ServiceApplication.UI.Forms
                     JOB_KİND = cbxJobs.SelectedItem.ToString(),
                     DATE_SERTAKEPLACE = Convert.ToDateTime(dtpStartDate.Value),
                     DATE_SERTOOKPLACE = Convert.ToDateTime(dtpActualStartDate.Value),
-                    DATE_TWOWEEKS = Convert.ToDateTime(dtpNextCutDate.Value),
+                    DATE_TWOWEEKS = Convert.ToDateTime(dtpNextCutDate.Value),                    
                    buraya fiyat charge falan gelmesi lazım fakat ben anlamadım o ksımını
 
                 });*/
             }
         }
-        private async Task DelayMethod()
-        {
-            await Task.Delay(2000);
-            lblControlText.Text = "";
-        }
-
-
         private void btnSelectPicture_Click(object sender, EventArgs e)
         {
             OpenFileDialog file= new OpenFileDialog();
             file.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            file.Filter = "*.png | *.jpg";
+            file.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
             file.CheckFileExists = false;
             file.Title = "Select a Picture...";
             file.ShowDialog();
