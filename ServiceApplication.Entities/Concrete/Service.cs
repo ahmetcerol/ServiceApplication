@@ -12,7 +12,7 @@ namespace ServiceApplication.Entities.Concrete
         public int SERVICE_ID { get; set; }
         public string CUSTOMER_NAME { get; set;}
         public string CUSTOMER_SURNAME { get; set; }
-        public int CUSTOMER_TELEPHONE { get; set; }
+        public string CUSTOMER_TELEPHONE { get; set; }
         public string CUSTOMER_EMAIL { get; set; }
         public string CUSTOMER_ADRESS { get; set; }
         public string PERSON_OF_CONTACT { get; set; }
@@ -22,10 +22,9 @@ namespace ServiceApplication.Entities.Concrete
         public DateTime START_DATE { get; set; }
         public DateTime CUT_DATE { get; set; } 
         public DateTime START_ACT_DATE { get; set; }
-        public DateTime DATE_OF_SER_ACT { get; set; }   
+        public string DATE_OF_SER_ACT { get; set; }   
         public int SERVICE_CHARGE { get; set; }
         public string SPECIAL_NOTE { get; set; }
         public byte[] SELECTED_IMAGE_DATA { get; set; } 
-
     }
 }

@@ -2,6 +2,7 @@
 using ServiceApplication.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
@@ -144,7 +145,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     string createTableQuery = $"USE {databaseName}; CREATE TABLE {tableName} (SERVICE_ID INT PRIMARY KEY," +
                          $"CUSTOMER_NAME NVARCHAR(255)," +
                          $"CUSTOMER_SURNAME NVARCHAR(255)," +
-                         $"CUSTOMER_TELEPHONE INT, " +
+                         $"CUSTOMER_TELEPHONE NVARCHAR(255), " +
                          $"CUSTOMER_EMAIL NVARCHAR(255), " +
                          $"CUSTOMER_ADRESS NVARCHAR(255), " +
                          $"PERSON_OF_CONTACT NVARCHAR(255)," +
@@ -157,7 +158,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                          $"DATE_OF_SER_ACT DATE,  " +
                          $"SERVICE_CHARGE INT," +
                          $"SPECIAL_NOTE NVARCHAR(MAX), " +
-                         $"ResimData VARBINARY(MAX) NULL)";
+                         $"SELECTED_IMAGE_DATA VARBINARY(MAX) NULL)";
 
                     // Komutu SQL Server'a gönder
                     using (SqlCommand command = new SqlCommand(createTableQuery, connection))
@@ -176,7 +177,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
         public List<Service> GetAll()
         {
             CheckAndCreate();
-            SqlConnection aconnection = new SqlConnection("...");
+            SqlConnection aconnection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("Select * from ServiceApp ", aconnection);
             SqlDataReader reader = command.ExecuteReader();
             List<Service> serviceInfo = new List<Service>();
@@ -187,7 +188,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     SERVICE_ID = Convert.ToInt32(reader["SERVICE_ID"]),
                     CUSTOMER_NAME = Convert.ToString(reader["CUSTOMER_NAME"]),
                     CUSTOMER_SURNAME= Convert.ToString(reader["CUSTOMER_SURNAME"]),
-                    CUSTOMER_TELEPHONE = Convert.ToInt32(reader["CUSTOMER_TELEPHONE"]),
+                    CUSTOMER_TELEPHONE = Convert.ToString(reader["CUSTOMER_TELEPHONE"]),
                     CUSTOMER_EMAIL = Convert.ToString(reader["CUSTOMER_EMAIL"]),
                     CUSTOMER_ADRESS = Convert.ToString(reader["CUSTOMER_ADRESS"]),
                     PERSON_OF_CONTACT = Convert.ToString(reader["PERSON_OF_CONTACT"]),
@@ -197,11 +198,11 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     START_DATE = Convert.ToDateTime(reader["START_DATE"]),
                     CUT_DATE = Convert.ToDateTime(reader["CUT_DATE"]),
                     START_ACT_DATE = Convert.ToDateTime(reader["START_ACT_DATE"]),
-                    DATE_OF_SER_ACT = Convert.ToDateTime(reader["DATE_OF_SER_ACT"]),
+                    DATE_OF_SER_ACT = Convert.ToString(reader["DATE_OF_SER_ACT"]),
                     SERVICE_CHARGE = Convert.ToInt32(reader["SERVICE_CHARGE"]),
                     SPECIAL_NOTE = Convert.ToString(reader["SPECIAL_NOTE"]),
                     SELECTED_IMAGE_DATA= (byte[])reader["SELECTED_IMAGE_DATA"],
-            };
+                };
                 serviceInfo.Add(service);
 
             }
@@ -210,20 +211,21 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
 
             return serviceInfo;
         }
+
         public void Add(Service service)
         {
 
             CheckAndCreate();
-            SqlConnection aconnection = new SqlConnection("...");
-            SqlCommand command = new SqlCommand(
-                "INSERT INTO YourTableName VALUES (@CUSTOMER_NAME,@CUSTOMER_SURNAME,@CUSTOMER_TELEPHONE,   @CUSTOMER_EMAIL,@CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, " +
-                "@JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE,@SELECTED_IMAGE_DATA", aconnection);
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            string queryStirng = "use ServiceAPP; INSERT INTO ServiceApp VALUES (@CUSTOMER_NAME,@CUSTOMER_SURNAME,@CUSTOMER_TELEPHONE, @CUSTOMER_EMAIL,@CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, @JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE, @SELECTED_IMAGE_DATA";
+            SqlCommand command = new SqlCommand(queryStirng, connection);
 
             command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
             command.Parameters.AddWithValue("@CUSTOMER_SURNAME", service.CUSTOMER_SURNAME);
             command.Parameters.AddWithValue("@CUSTOMER_TELEPHONE", service.CUSTOMER_TELEPHONE);
             command.Parameters.AddWithValue("@CUSTOMER_EMAIL", service.CUSTOMER_EMAIL);
-            command.Parameters.AddWithValue("@CUSTOMER_ADRESS", service.CUSTOMER_ADRESS);            
+            command.Parameters.AddWithValue("@CUSTOMER_ADRESS", service.CUSTOMER_ADRESS);
             command.Parameters.AddWithValue("@PERSON_OF_CONTACT", service.PERSON_OF_CONTACT);
             command.Parameters.AddWithValue("@DETAILS_OF_PROPERTY", service.DETAILS_OF_PROPERTY);
             command.Parameters.AddWithValue("@PRICE_OF_DAY", service.PRICE_OF_DAY);
@@ -235,9 +237,14 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             command.Parameters.AddWithValue("@SERVICE_CHARGE", service.SERVICE_CHARGE);
             command.Parameters.AddWithValue("@SPECIAL_NOTE", service.SPECIAL_NOTE);
             command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA);
+
             command.ExecuteNonQuery();
-            aconnection.Close();
+            connection.Close();
         }
+
+
+
+
     }
 }
 

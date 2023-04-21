@@ -62,7 +62,7 @@ namespace ServiceApplication.UI.Forms
                 { 
                     CUSTOMER_NAME = tbxName.Text,
                     CUSTOMER_SURNAME = tbxName.Text,
-                    CUSTOMER_TELEPHONE = Convert.ToInt32(txTelephoneNumber.Text),
+                    CUSTOMER_TELEPHONE = txTelephoneNumber.Text,
                     CUSTOMER_EMAIL = tbxEmail.Text,
                     CUSTOMER_ADRESS = tbxAddress.Text,
                     PERSON_OF_CONTACT = tbxPersonofContact.Text,
@@ -72,7 +72,7 @@ namespace ServiceApplication.UI.Forms
                     START_DATE = Convert.ToDateTime(dtpStartDate.Value),
                     CUT_DATE = Convert.ToDateTime(dtpNextCutDate.Value),
                     START_ACT_DATE = Convert.ToDateTime(dtpActualStartDate.Value),
-                    DATE_OF_SER_ACT =Convert.ToDateTime( tbxActuallyPerformed.Text),
+                    DATE_OF_SER_ACT =tbxActuallyPerformed.Text,
                     SERVICE_CHARGE = Convert.ToInt32(tbxServiceCharge.Text),
                     SPECIAL_NOTE = rbxSpecialNote.Text,
 
@@ -114,7 +114,7 @@ namespace ServiceApplication.UI.Forms
                 DateTime startDate= dtpStartDate.Value;
                 int DayCount = Convert.ToInt32(tbxPriceDay.Text);
                 tbxActuallyPerformed.Text= GecenGunSayisi(actualOfStartDate, nextCutDate).ToString();
-                tbxServiceCharge.Text = ServiceCharge(startDate, nextCutDate,DayCount).ToString();
+                tbxServiceCharge.Text = ServiceCharge(nextCutDate, startDate,DayCount).ToString();
 
 
 
