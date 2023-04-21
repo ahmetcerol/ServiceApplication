@@ -38,6 +38,7 @@ namespace ServiceApplication.UI.Forms
                 return false;
             }
         }
+
         private async Task DelayMethod()
         {
             await Task.Delay(2000);
@@ -45,19 +46,21 @@ namespace ServiceApplication.UI.Forms
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (tbxAddress.Text == String.Empty || tbxName.Text == String.Empty || tbxPriceDay.Text == String.Empty || 
-                tbxProperty.Text == String.Empty || tbxSurname.Text == String.Empty)
+            if (tbxAddress.Text == String.Empty || tbxName.Text == String.Empty || tbxPriceDay.Text == String.Empty ||
+         tbxProperty.Text == String.Empty || tbxSurname.Text == String.Empty)
             {
-                MessageBox.Show("Please fill in all fields");}
-            else if (IsValidEmail(tbxEmail.Text))
+                MessageBox.Show("Please fill in all fields");
+            }
+            else if (!IsValidEmail(tbxEmail.Text)) // "!" operatörü ile IsValidEmail sonucunun tersini kontrol ediyoruz
             {
                 lblControlText.Text = "E-mail is not valid";
             }
             else
             {
-                lblControlText.Text = "E-mail is  valid";
-                btnCalculate_Click(sender,e);
+                lblControlText.Text = "E-mail is valid";
+                btnCalculate_Click(sender, e);
                 DelayMethod();
+
                 _serviceService.Add(new Service
                 { 
                     CUSTOMER_NAME = tbxName.Text,

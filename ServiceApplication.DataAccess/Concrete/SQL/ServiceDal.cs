@@ -142,7 +142,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     connection.Open();
 
                     // Tablo oluşturma komutunu hazırla
-                    string createTableQuery = $"USE {databaseName}; CREATE TABLE {tableName} (SERVICE_ID INT PRIMARY KEY," +
+                    string createTableQuery = $"USE {databaseName}; CREATE TABLE {tableName} (SERVICE_ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY," +
                          $"CUSTOMER_NAME NVARCHAR(255)," +
                          $"CUSTOMER_SURNAME NVARCHAR(255)," +
                          $"CUSTOMER_TELEPHONE NVARCHAR(255), " +
@@ -179,6 +179,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             CheckAndCreate();
             SqlConnection aconnection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand("Select * from ServiceApp ", aconnection);
+            aconnection.Open();
             SqlDataReader reader = command.ExecuteReader();
             List<Service> serviceInfo = new List<Service>();
             while (reader.Read())
@@ -212,34 +213,73 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             return serviceInfo;
         }
 
+        //public void Add(Service service)
+        //{
+
+        //    CheckAndCreate();
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open(); // Bağlantıyı aç
+
+        //        SqlCommand command = new SqlCommand(
+        //            "INSERT INTO YourTableName VALUES (@CUSTOMER_NAME,@CUSTOMER_SURNAME,@CUSTOMER_TELEPHONE,   @CUSTOMER_EMAIL,@CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, " +
+        //            "@JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE,@SELECTED_IMAGE_DATA", connection);
+
+        //        // Parametrelerinizi ekleyin
+        //        command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
+        //        command.Parameters.AddWithValue("@CUSTOMER_SURNAME", service.CUSTOMER_SURNAME);
+        //        command.Parameters.AddWithValue("@CUSTOMER_TELEPHONE", service.CUSTOMER_TELEPHONE);
+        //        command.Parameters.AddWithValue("@CUSTOMER_EMAIL", service.CUSTOMER_EMAIL);
+        //        command.Parameters.AddWithValue("@CUSTOMER_ADRESS", service.CUSTOMER_ADRESS);
+        //        command.Parameters.AddWithValue("@PERSON_OF_CONTACT", service.PERSON_OF_CONTACT);
+        //        command.Parameters.AddWithValue("@DETAILS_OF_PROPERTY", service.DETAILS_OF_PROPERTY);
+        //        command.Parameters.AddWithValue("@PRICE_OF_DAY", service.PRICE_OF_DAY);
+        //        command.Parameters.AddWithValue("@JOB_KIND", service.JOB_KIND);
+        //        command.Parameters.AddWithValue("@START_DATE", service.START_DATE);
+        //        command.Parameters.AddWithValue("@CUT_DATE", service.CUT_DATE);
+        //        command.Parameters.AddWithValue("@START_ACT_DATE", service.START_ACT_DATE);
+        //        command.Parameters.AddWithValue("@DATE_OF_SER_ACT", service.DATE_OF_SER_ACT);
+        //        command.Parameters.AddWithValue("@SERVICE_CHARGE", service.SERVICE_CHARGE);
+        //        command.Parameters.AddWithValue("@SPECIAL_NOTE", service.SPECIAL_NOTE);
+        //        command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA);
+
+        //        command.ExecuteNonQuery(); // Komutu çalıştır
+
+        //        connection.Close(); // Bağlantıyı kapat
+        //    }
+        //}
+
         public void Add(Service service)
         {
-
             CheckAndCreate();
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-            string queryStirng = "use ServiceAPP; INSERT INTO ServiceApp VALUES (@CUSTOMER_NAME,@CUSTOMER_SURNAME,@CUSTOMER_TELEPHONE, @CUSTOMER_EMAIL,@CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, @JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE, @SELECTED_IMAGE_DATA";
-            SqlCommand command = new SqlCommand(queryStirng, connection);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                //, @SELECTED_IMAGE_DATA
+                string queryString = "Use ServiceAPP;INSERT INTO ServiceApp VALUES (@CUSTOMER_NAME, @CUSTOMER_SURNAME, @CUSTOMER_TELEPHONE, @CUSTOMER_EMAIL, @CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, @JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE)";
+                using (SqlCommand command = new SqlCommand(queryString, connection))
+                {
+                    command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
+                    command.Parameters.AddWithValue("@CUSTOMER_SURNAME", service.CUSTOMER_SURNAME);
+                    command.Parameters.AddWithValue("@CUSTOMER_TELEPHONE", service.CUSTOMER_TELEPHONE);
+                    command.Parameters.AddWithValue("@CUSTOMER_EMAIL", service.CUSTOMER_EMAIL);
+                    command.Parameters.AddWithValue("@CUSTOMER_ADRESS", service.CUSTOMER_ADRESS);
+                    command.Parameters.AddWithValue("@PERSON_OF_CONTACT", service.PERSON_OF_CONTACT);
+                    command.Parameters.AddWithValue("@DETAILS_OF_PROPERTY", service.DETAILS_OF_PROPERTY);
+                    command.Parameters.AddWithValue("@PRICE_OF_DAY", service.PRICE_OF_DAY);
+                    command.Parameters.AddWithValue("@JOB_KIND", service.JOB_KIND);
+                    command.Parameters.AddWithValue("@START_DATE", service.START_DATE);
+                    command.Parameters.AddWithValue("@CUT_DATE", service.CUT_DATE);
+                    command.Parameters.AddWithValue("@START_ACT_DATE", service.START_ACT_DATE);
+                    command.Parameters.AddWithValue("@DATE_OF_SER_ACT", service.DATE_OF_SER_ACT);
+                    command.Parameters.AddWithValue("@SERVICE_CHARGE", service.SERVICE_CHARGE);
+                    command.Parameters.AddWithValue("@SPECIAL_NOTE", service.SPECIAL_NOTE);
+                    //command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA ?? (object)DBNull.Value);
 
-            command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
-            command.Parameters.AddWithValue("@CUSTOMER_SURNAME", service.CUSTOMER_SURNAME);
-            command.Parameters.AddWithValue("@CUSTOMER_TELEPHONE", service.CUSTOMER_TELEPHONE);
-            command.Parameters.AddWithValue("@CUSTOMER_EMAIL", service.CUSTOMER_EMAIL);
-            command.Parameters.AddWithValue("@CUSTOMER_ADRESS", service.CUSTOMER_ADRESS);
-            command.Parameters.AddWithValue("@PERSON_OF_CONTACT", service.PERSON_OF_CONTACT);
-            command.Parameters.AddWithValue("@DETAILS_OF_PROPERTY", service.DETAILS_OF_PROPERTY);
-            command.Parameters.AddWithValue("@PRICE_OF_DAY", service.PRICE_OF_DAY);
-            command.Parameters.AddWithValue("@JOB_KIND", service.JOB_KIND);
-            command.Parameters.AddWithValue("@START_DATE", service.START_DATE);
-            command.Parameters.AddWithValue("@CUT_DATE", service.CUT_DATE);
-            command.Parameters.AddWithValue("@START_ACT_DATE", service.START_ACT_DATE);
-            command.Parameters.AddWithValue("@DATE_OF_SER_ACT", service.DATE_OF_SER_ACT);
-            command.Parameters.AddWithValue("@SERVICE_CHARGE", service.SERVICE_CHARGE);
-            command.Parameters.AddWithValue("@SPECIAL_NOTE", service.SPECIAL_NOTE);
-            command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA);
-
-            command.ExecuteNonQuery();
-            connection.Close();
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
         }
 
 
