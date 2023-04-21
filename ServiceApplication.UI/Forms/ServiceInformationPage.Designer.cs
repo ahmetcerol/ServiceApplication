@@ -64,6 +64,7 @@
             this.lblSpecialNote = new System.Windows.Forms.Label();
             this.rbxSpecialNote = new System.Windows.Forms.RichTextBox();
             this.lblControlText = new System.Windows.Forms.Label();
+            this.btnCalculate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             this.btnCreate.ForeColor = System.Drawing.Color.White;
             this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreate.Location = new System.Drawing.Point(748, 677);
+            this.btnCreate.Location = new System.Drawing.Point(763, 677);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(115, 42);
@@ -321,7 +322,6 @@
             // tbxServiceCharge
             // 
             this.tbxServiceCharge.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbxServiceCharge.Enabled = false;
             this.tbxServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxServiceCharge.Location = new System.Drawing.Point(395, 569);
             this.tbxServiceCharge.Margin = new System.Windows.Forms.Padding(4);
@@ -380,7 +380,6 @@
             // tbxActuallyPerformed
             // 
             this.tbxActuallyPerformed.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbxActuallyPerformed.Enabled = false;
             this.tbxActuallyPerformed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxActuallyPerformed.Location = new System.Drawing.Point(467, 521);
             this.tbxActuallyPerformed.Margin = new System.Windows.Forms.Padding(4);
@@ -440,12 +439,33 @@
             this.lblControlText.TabIndex = 88;
             this.lblControlText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnCalculate
+            // 
+            this.btnCalculate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(59)))), ((int)(((byte)(56)))));
+            this.btnCalculate.FlatAppearance.BorderSize = 0;
+            this.btnCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCalculate.ForeColor = System.Drawing.Color.White;
+            this.btnCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnCalculate.Image")));
+            this.btnCalculate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalculate.Location = new System.Drawing.Point(602, 677);
+            this.btnCalculate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(139, 42);
+            this.btnCalculate.TabIndex = 90;
+            this.btnCalculate.Text = "Calculate";
+            this.btnCalculate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCalculate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCalculate.UseVisualStyleBackColor = false;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            // 
             // ServiceInformationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(892, 732);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.lblControlText);
             this.Controls.Add(this.rbxSpecialNote);
             this.Controls.Add(this.lblSpecialNote);
@@ -528,5 +548,6 @@
         private System.Windows.Forms.Label lblSpecialNote;
         private System.Windows.Forms.RichTextBox rbxSpecialNote;
         private System.Windows.Forms.Label lblControlText;
+        private System.Windows.Forms.Button btnCalculate;
     }
 }

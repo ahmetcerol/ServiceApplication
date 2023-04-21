@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,29 +51,32 @@ namespace ServiceApplication.UI.Forms
                 MessageBox.Show("Please fill in all fields");}
             else if (IsValidEmail(tbxEmail.Text))
             {
-                lblControlText.Text = "E-mail is valid";
+                lblControlText.Text = "E-mail is not valid";
             }
             else
             {
-                lblControlText.Text = "E-mail is not valid";
+                lblControlText.Text = "E-mail is  valid";
+                btnCalculate_Click(sender,e);
                 DelayMethod();
-                /*_serviceService.Add(new Service
-                {
+                _serviceService.Add(new Service
+                { 
                     CUSTOMER_NAME = tbxName.Text,
-                    CUSTOMER_ADDRESS = tbxAddress.Text,
+                    CUSTOMER_SURNAME = tbxName.Text,
                     CUSTOMER_TELEPHONE = Convert.ToInt32(txTelephoneNumber.Text),
-                    CUSTOMER_EMAİL = tbxEmail.Text,
+                    CUSTOMER_EMAIL = tbxEmail.Text,
+                    CUSTOMER_ADRESS = tbxAddress.Text,
                     PERSON_OF_CONTACT = tbxPersonofContact.Text,
-                    DESC_PROPERTY = tbxProperty.Text,
-                    SPECİAL_NOTE = rbxSpecialNote.Text,
-                    ACTUALLY_PERFORMED = Convert.ToInt32(tbxActuallyPerformed.Text),
-                    JOB_KİND = cbxJobs.SelectedItem.ToString(),
-                    DATE_SERTAKEPLACE = Convert.ToDateTime(dtpStartDate.Value),
-                    DATE_SERTOOKPLACE = Convert.ToDateTime(dtpActualStartDate.Value),
-                    DATE_TWOWEEKS = Convert.ToDateTime(dtpNextCutDate.Value),                    
-                   buraya fiyat charge falan gelmesi lazım fakat ben anlamadım o ksımını
+                    DETAILS_OF_PROPERTY = tbxProperty.Text,
+                    PRICE_OF_DAY = Convert.ToInt32(tbxPriceDay.Text),
+                    JOB_KIND = cbxJobs.Text,
+                    START_DATE = Convert.ToDateTime(dtpStartDate.Value),
+                    CUT_DATE = Convert.ToDateTime(dtpNextCutDate.Value),
+                    START_ACT_DATE = Convert.ToDateTime(dtpActualStartDate.Value),
+                    DATE_OF_SER_ACT =Convert.ToDateTime( tbxActuallyPerformed.Text),
+                    SERVICE_CHARGE = Convert.ToInt32(tbxServiceCharge.Text),
+                    SPECIAL_NOTE = rbxSpecialNote.Text,
 
-                });*/
+                });
             }
         }
         private void btnSelectPicture_Click(object sender, EventArgs e)
@@ -90,6 +94,50 @@ namespace ServiceApplication.UI.Forms
             }
             pbxPicture.Image = Image.FromFile(file.FileName);
             PictureFileName = file.FileName;
+        }
+
+ 
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            if (dtpActualStartDate.Value > dtpNextCutDate.Value)
+            {
+                MessageBox.Show("Enter a correct Date");
+            }
+            else if (dtpStartDate.Value > dtpActualStartDate.Value)
+            {
+                MessageBox.Show("Enter a correct Date");
+            }
+            else
+            {
+                DateTime actualOfStartDate = dtpActualStartDate.Value;
+                DateTime nextCutDate = dtpNextCutDate.Value;
+                DateTime startDate= dtpStartDate.Value;
+                int DayCount = Convert.ToInt32(tbxPriceDay.Text);
+                tbxActuallyPerformed.Text= GecenGunSayisi(actualOfStartDate, nextCutDate).ToString();
+                tbxServiceCharge.Text = ServiceCharge(startDate, nextCutDate,DayCount).ToString();
+
+
+
+            }
+        }
+
+        public int GecenGunSayisi(DateTime ilkTarihSecici, DateTime ikinciTarihSecici)
+        {
+            DateTime ilkTarih = ilkTarihSecici;
+            DateTime ikinciTarih = ikinciTarihSecici;
+
+            TimeSpan fark = ikinciTarih - ilkTarih;
+
+            return (int)fark.TotalDays;
+        }
+
+        public int ServiceCharge(DateTime dateTime, DateTime dateTimeEnd,int DayCount) {
+
+            DateTime ilkTarih = dateTime;
+            DateTime ilkTarihEnd = dateTimeEnd;
+            TimeSpan fark = ilkTarih - ilkTarihEnd;
+            return (int)fark.TotalDays*DayCount;
+
         }
     }
 }
