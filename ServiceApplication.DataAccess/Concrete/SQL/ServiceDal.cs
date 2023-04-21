@@ -14,7 +14,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
 {
     public class ServiceDal:IServiceDal
     {
-        string connectionString = "Data Source=DORUKPC5;Initial Catalog=master;User ID=sa;Password=sapass;Persist Security Info =False"; // Bağlantı dizesi
+        string connectionString = "Data Source=Y O U R D A T A B A S E;Initial Catalog=master;User ID= Y O U R U S E R N A M E ;Password= Y O U R P A S S ;Persist Security Info =False"; // Bağlantı dizesi
         string databaseName = "ServiceAPP"; // VDS veritabanı adı
 
         public void CheckAndCreate() {
@@ -155,7 +155,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                          $"START_DATE DATE, " +
                          $"CUT_DATE DATE," +
                          $"START_ACT_DATE DATE,  " +
-                         $"DATE_OF_SER_ACT DATE,  " +
+                         $"DATE_OF_SER_ACT nvarchar(255),  " +
                          $"SERVICE_CHARGE INT," +
                          $"SPECIAL_NOTE NVARCHAR(MAX), " +
                          $"SELECTED_IMAGE_DATA VARBINARY(MAX) NULL)";
@@ -178,7 +178,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
         {
             CheckAndCreate();
             SqlConnection aconnection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand("Select * from ServiceApp ", aconnection);
+            SqlCommand command = new SqlCommand("use ServiceAPP;Select * from ServiceApp ", aconnection);
             aconnection.Open();
             SqlDataReader reader = command.ExecuteReader();
             List<Service> serviceInfo = new List<Service>();
@@ -202,7 +202,7 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     DATE_OF_SER_ACT = Convert.ToString(reader["DATE_OF_SER_ACT"]),
                     SERVICE_CHARGE = Convert.ToInt32(reader["SERVICE_CHARGE"]),
                     SPECIAL_NOTE = Convert.ToString(reader["SPECIAL_NOTE"]),
-                    SELECTED_IMAGE_DATA= (byte[])reader["SELECTED_IMAGE_DATA"],
+                    //SELECTED_IMAGE_DATA= (byte[])reader["SELECTED_IMAGE_DATA"],
                 };
                 serviceInfo.Add(service);
 
@@ -213,41 +213,6 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             return serviceInfo;
         }
 
-        //public void Add(Service service)
-        //{
-
-        //    CheckAndCreate();
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        connection.Open(); // Bağlantıyı aç
-
-        //        SqlCommand command = new SqlCommand(
-        //            "INSERT INTO YourTableName VALUES (@CUSTOMER_NAME,@CUSTOMER_SURNAME,@CUSTOMER_TELEPHONE,   @CUSTOMER_EMAIL,@CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, " +
-        //            "@JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE,@SELECTED_IMAGE_DATA", connection);
-
-        //        // Parametrelerinizi ekleyin
-        //        command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
-        //        command.Parameters.AddWithValue("@CUSTOMER_SURNAME", service.CUSTOMER_SURNAME);
-        //        command.Parameters.AddWithValue("@CUSTOMER_TELEPHONE", service.CUSTOMER_TELEPHONE);
-        //        command.Parameters.AddWithValue("@CUSTOMER_EMAIL", service.CUSTOMER_EMAIL);
-        //        command.Parameters.AddWithValue("@CUSTOMER_ADRESS", service.CUSTOMER_ADRESS);
-        //        command.Parameters.AddWithValue("@PERSON_OF_CONTACT", service.PERSON_OF_CONTACT);
-        //        command.Parameters.AddWithValue("@DETAILS_OF_PROPERTY", service.DETAILS_OF_PROPERTY);
-        //        command.Parameters.AddWithValue("@PRICE_OF_DAY", service.PRICE_OF_DAY);
-        //        command.Parameters.AddWithValue("@JOB_KIND", service.JOB_KIND);
-        //        command.Parameters.AddWithValue("@START_DATE", service.START_DATE);
-        //        command.Parameters.AddWithValue("@CUT_DATE", service.CUT_DATE);
-        //        command.Parameters.AddWithValue("@START_ACT_DATE", service.START_ACT_DATE);
-        //        command.Parameters.AddWithValue("@DATE_OF_SER_ACT", service.DATE_OF_SER_ACT);
-        //        command.Parameters.AddWithValue("@SERVICE_CHARGE", service.SERVICE_CHARGE);
-        //        command.Parameters.AddWithValue("@SPECIAL_NOTE", service.SPECIAL_NOTE);
-        //        command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA);
-
-        //        command.ExecuteNonQuery(); // Komutu çalıştır
-
-        //        connection.Close(); // Bağlantıyı kapat
-        //    }
-        //}
 
         public void Add(Service service)
         {
@@ -255,8 +220,8 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                //, @SELECTED_IMAGE_DATA
-                string queryString = "Use ServiceAPP;INSERT INTO ServiceApp VALUES (@CUSTOMER_NAME, @CUSTOMER_SURNAME, @CUSTOMER_TELEPHONE, @CUSTOMER_EMAIL, @CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, @JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE)";
+                string queryString = "USE ServiceAPP; INSERT INTO ServiceApp (CUSTOMER_NAME, CUSTOMER_SURNAME, CUSTOMER_TELEPHONE, CUSTOMER_EMAIL, CUSTOMER_ADRESS, PERSON_OF_CONTACT, DETAILS_OF_PROPERTY, PRICE_OF_DAY, JOB_KIND, START_DATE, CUT_DATE, START_ACT_DATE, DATE_OF_SER_ACT, SERVICE_CHARGE, SPECIAL_NOTE ) VALUES (@CUSTOMER_NAME, @CUSTOMER_SURNAME, @CUSTOMER_TELEPHONE, @CUSTOMER_EMAIL, @CUSTOMER_ADRESS, @PERSON_OF_CONTACT, @DETAILS_OF_PROPERTY, @PRICE_OF_DAY, @JOB_KIND, @START_DATE, @CUT_DATE, @START_ACT_DATE, @DATE_OF_SER_ACT, @SERVICE_CHARGE, @SPECIAL_NOTE)";
+                //, @SELECTED_IMAGE_DATA --- , SELECTED_IMAGE_DATA
                 using (SqlCommand command = new SqlCommand(queryString, connection))
                 {
                     command.Parameters.AddWithValue("@CUSTOMER_NAME", service.CUSTOMER_NAME);
@@ -274,14 +239,13 @@ namespace ServiceApplication.DataAccess.Concrete.SQL
                     command.Parameters.AddWithValue("@DATE_OF_SER_ACT", service.DATE_OF_SER_ACT);
                     command.Parameters.AddWithValue("@SERVICE_CHARGE", service.SERVICE_CHARGE);
                     command.Parameters.AddWithValue("@SPECIAL_NOTE", service.SPECIAL_NOTE);
-                    //command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA ?? (object)DBNull.Value);
+                   //command.Parameters.AddWithValue("@SELECTED_IMAGE_DATA", service.SELECTED_IMAGE_DATA ?? (object)DBNull.Value);
 
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
             }
         }
-
 
 
 

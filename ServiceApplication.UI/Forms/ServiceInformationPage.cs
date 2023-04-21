@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Net.NetworkInformation;
@@ -78,28 +79,38 @@ namespace ServiceApplication.UI.Forms
                     DATE_OF_SER_ACT =tbxActuallyPerformed.Text,
                     SERVICE_CHARGE = Convert.ToInt32(tbxServiceCharge.Text),
                     SPECIAL_NOTE = rbxSpecialNote.Text,
+                    //SELECTED_IMAGE_DATA = _pictureData,
 
                 });
             }
         }
+
+        private byte[] _pictureData;
+
         private void btnSelectPicture_Click(object sender, EventArgs e)
         {
-            OpenFileDialog file= new OpenFileDialog();
+            OpenFileDialog file = new OpenFileDialog();
             file.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             file.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
             file.CheckFileExists = false;
             file.Title = "Select a Picture...";
             file.ShowDialog();
-            if (file.ShowDialog()==DialogResult.OK)
+            if (file.ShowDialog() == DialogResult.OK)
             {
                 string FilePath = file.FileName;
                 string NameofFile = file.SafeFileName;
+                PictureFileName = FilePath;
+                byte[] resimBytes;
+                using (FileStream fs = new FileStream(PictureFileName, FileMode.Open, FileAccess.Read))
+                {
+                    resimBytes = new byte[fs.Length];
+                    fs.Read(resimBytes, 0, (int)fs.Length);
+                }
             }
             pbxPicture.Image = Image.FromFile(file.FileName);
-            PictureFileName = file.FileName;
+
         }
 
- 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             if (dtpActualStartDate.Value > dtpNextCutDate.Value)

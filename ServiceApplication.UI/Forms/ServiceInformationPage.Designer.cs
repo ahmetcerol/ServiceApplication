@@ -207,7 +207,7 @@
             // dtpStartDate
             // 
             this.dtpStartDate.Location = new System.Drawing.Point(296, 332);
-            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(151, 20);
             this.dtpStartDate.TabIndex = 66;
@@ -215,7 +215,7 @@
             // dtpActualStartDate
             // 
             this.dtpActualStartDate.Location = new System.Drawing.Point(296, 365);
-            this.dtpActualStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpActualStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpActualStartDate.Name = "dtpActualStartDate";
             this.dtpActualStartDate.Size = new System.Drawing.Size(151, 20);
             this.dtpActualStartDate.TabIndex = 68;
@@ -306,6 +306,7 @@
             this.tbxServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxServiceCharge.Location = new System.Drawing.Point(296, 462);
             this.tbxServiceCharge.Name = "tbxServiceCharge";
+            this.tbxServiceCharge.ReadOnly = true;
             this.tbxServiceCharge.Size = new System.Drawing.Size(151, 21);
             this.tbxServiceCharge.TabIndex = 77;
             // 
@@ -313,7 +314,7 @@
             // 
             this.pbxPicture.BackColor = System.Drawing.Color.DarkGray;
             this.pbxPicture.Location = new System.Drawing.Point(549, 11);
-            this.pbxPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxPicture.Margin = new System.Windows.Forms.Padding(2);
             this.pbxPicture.Name = "pbxPicture";
             this.pbxPicture.Size = new System.Drawing.Size(97, 96);
             this.pbxPicture.TabIndex = 78;
@@ -322,7 +323,7 @@
             // btnSelectPicture
             // 
             this.btnSelectPicture.Location = new System.Drawing.Point(572, 112);
-            this.btnSelectPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectPicture.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectPicture.Name = "btnSelectPicture";
             this.btnSelectPicture.Size = new System.Drawing.Size(87, 19);
             this.btnSelectPicture.TabIndex = 79;
@@ -333,7 +334,7 @@
             // dtpNextCutDate
             // 
             this.dtpNextCutDate.Location = new System.Drawing.Point(296, 395);
-            this.dtpNextCutDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpNextCutDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpNextCutDate.Name = "dtpNextCutDate";
             this.dtpNextCutDate.Size = new System.Drawing.Size(151, 20);
             this.dtpNextCutDate.TabIndex = 81;
@@ -364,6 +365,7 @@
             this.tbxActuallyPerformed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxActuallyPerformed.Location = new System.Drawing.Point(350, 423);
             this.tbxActuallyPerformed.Name = "tbxActuallyPerformed";
+            this.tbxActuallyPerformed.ReadOnly = true;
             this.tbxActuallyPerformed.Size = new System.Drawing.Size(97, 21);
             this.tbxActuallyPerformed.TabIndex = 83;
             // 
@@ -382,7 +384,7 @@
             this.cbxJobs.BackColor = System.Drawing.SystemColors.ControlDark;
             this.cbxJobs.FormattingEnabled = true;
             this.cbxJobs.Location = new System.Drawing.Point(296, 286);
-            this.cbxJobs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxJobs.Margin = new System.Windows.Forms.Padding(2);
             this.cbxJobs.Name = "cbxJobs";
             this.cbxJobs.Size = new System.Drawing.Size(151, 21);
             this.cbxJobs.TabIndex = 85;
@@ -401,7 +403,7 @@
             // 
             this.rbxSpecialNote.BackColor = System.Drawing.SystemColors.ControlDark;
             this.rbxSpecialNote.Location = new System.Drawing.Point(198, 495);
-            this.rbxSpecialNote.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbxSpecialNote.Margin = new System.Windows.Forms.Padding(2);
             this.rbxSpecialNote.Name = "rbxSpecialNote";
             this.rbxSpecialNote.Size = new System.Drawing.Size(249, 79);
             this.rbxSpecialNote.TabIndex = 87;
@@ -480,7 +482,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblInformation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ServiceInformationPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ServiceInformationPage";
